@@ -29,13 +29,13 @@ function validationFormulaire() {
     }
     else if(sexe == 'masculin'){
         
-        document.location.href = "monsieur.html";
+        // document.location.href = "monsieur.html";
         // alert('dwed')
-        return false;
+        return true;
         
     } else if(sexe == 'feminin'){
-        document.location.href = "madame.html";
-        return false;
+        // document.location.href = "madame.html";
+        return true;
         
     } else{
         alert("Oups pas de sexe!!!!");

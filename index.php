@@ -8,8 +8,28 @@
     <title>Formulaire</title>
 </head>
 <body>
+    <?php
+        $nom = $prenom = $telephone = $ville = $ville = "";
+        if (isset($_GET['submit'])) {
+            $nom = $_GET['nom'];
+            $prenom = $_GET['prenom'];
+            $telephone = $_GET['telephone'];
+            $ville = $_GET['ville'];
+            $sexe = $_GET['genre'];
+        }
+    ?>
     <div class="container">
-        <form  id="formulaire" >
+        <?php 
+            if($sexe == "masculin") {
+                echo "<h1 class='title'>Bienvenue monsieur ".$nom." ".$prenom."</h1>";
+            } 
+
+            if($sexe == "feminin") {
+                echo "<h1 class='title'>Bienvenue madame ".$nom." ".$prenom."</h1>";
+            } 
+        ?>
+        
+        <form  metod="GET"  id="formulaire" onsubmit="return validationFormulaire();">
             <fieldset>
                 <legend>Formulaire</legend>
                 Nom :
@@ -35,7 +55,7 @@
                 <input type="radio" name="genre" value="autre" id="autre"> autre
                 <br>
                 <br>
-                <input type="submit" value="Valider" onclick="return validationFormulaire();">
+                <input type="submit" name="submit" value="Valider">
             </fieldset>
         </form>
     </div>
